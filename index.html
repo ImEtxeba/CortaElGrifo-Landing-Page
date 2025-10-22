@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>CortaElGrifo — Conoce todas tus suscripciones y cierra grifos abiertos</title>
+  <meta name="description" content="CortaElGrifo es el gestor de suscripciones para controlar gastos en suscripciones online. Descubre todas tus suscripciones, cuánto pagas al mes y cancela lo que no uses. Suscripciones online España." />
+  <meta name="keywords" content="gestor de suscripciones, control de gastos en suscripciones, suscripciones online España" />
+
+  <meta property="og:title" content="CortaElGrifo — Controla tus suscripciones" />
+  <meta property="og:description" content="Detecta automáticamente tus suscripciones online, conoce cuánto pagas y ahorra." />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 24 24'%3E%3Cpath fill='%231E40AF' d='M4 8h7V6H8.5A2.5 2.5 0 0 0 6 3.5V3h5V1H4v2.5A4.5 4.5 0 0 0 8.5 8H4zm16 3h-3V8h-2v3h-1a3 3 0 0 0-3 3v1.5a2.5 2.5 0 1 0 5 0V14h4a2 2 0 0 0 2-2v-.5A1.5 1.5 0 0 0 20 10.5z'/%3E%3C/svg%3E" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#1E40AF', // azul grifo oscuro
+              primary: '#3B82F6', // azul agua
+              steel: '#6B7280', // gris metálico
+              success: '#10B981' // verde ahorro
+            }
+          },
+          boxShadow: {
+            soft: '0 10px 30px -12px rgba(30,64,175,0.25)'
+          },
+          backgroundImage: {
+            'water-gradient': 'radial-gradient(1200px 600px at 80% -20%, rgba(59,130,246,0.25), transparent 60%), radial-gradient(800px 400px at -10% 50%, rgba(16,185,129,0.18), transparent 60%)'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="min-h-screen bg-slate-50 text-slate-900 selection:bg-brand-primary/20">
+  <header class="relative overflow-hidden">
+    <!-- Fondo acuoso -->
+    <div class="pointer-events-none absolute inset-0 bg-water-gradient"></div>
+    <div class="absolute -top-20 -right-24 w-72 h-72 rounded-full bg-brand-primary/10 blur-3xl"></div>
+    <div class="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-brand-success/10 blur-3xl"></div>
+
+    <nav class="relative z-10 container mx-auto px-6 py-5 flex items-center justify-between">
+      <a href="#" class="inline-flex items-center gap-2">
+        <!-- Icono grifo -->
+        <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-white shadow-md shadow-brand-dark/10 ring-1 ring-slate-200">
+          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" class="text-brand-dark">
+            <path fill="currentColor" d="M4 8h7V6H8.5A2.5 2.5 0 0 0 6 3.5V3h5V1H4v2.5A4.5 4.5 0 0 0 8.5 8H4zm16 3h-3V8h-2v3h-1a3 3 0 0 0-3 3v1.5a2.5 2.5 0 1 0 5 0V14h4a2 2 0 0 0 2-2v-.5A1.5 1.5 0 0 0 20 10.5z"/>
+          </svg>
+        </span>
+        <span class="font-semibold text-lg tracking-tight">CortaElGrifo</span>
+      </a>
+      <div class="hidden sm:flex items-center gap-4">
+        <a href="#beneficios" class="text-sm text-slate-600 hover:text-slate-900">Beneficios</a>
+        <a href="#preview" class="text-sm text-slate-600 hover:text-slate-900">Vista previa</a>
+        <a href="#cta" class="text-sm text-white bg-brand-dark hover:bg-brand-primary transition-colors px-4 py-2 rounded-lg shadow-soft">Únete a la beta</a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="relative z-10 container mx-auto px-6 pt-10 pb-16 md:pt-16 md:pb-24">
+      <div class="grid md:grid-cols-2 items-center gap-10">
+        <div>
+          <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight text-slate-900">
+            Conoce todas tus suscripciones y <span class="text-brand-dark">cierra grifos abiertos.</span>
+          </h1>
+          <p class="mt-4 text-base md:text-lg text-slate-600 max-w-prose">
+            Conecta tu correo y detectamos automáticamente tus suscripciones online.
+            Visualiza cuánto pagas cada mes, desde cuándo, y elimina lo que no usas.
+          </p>
+          <form id="cta" class="mt-6 flex flex-col sm:flex-row gap-3" action="#" method="post" onsubmit="event.preventDefault(); alert('¡Gracias! Te avisaremos cuando la beta esté lista.');">
+            <label class="sr-only" for="email">Email</label>
+            <input id="email" name="email" type="email" required placeholder="tu@email.com"
+                   class="w-full sm:flex-1 px-4 py-3 rounded-lg border border-slate-200 bg-white/90 backdrop-blur placeholder:text-slate-400 focus:outline-none focus:ring-4 focus:ring-brand-primary/20 focus:border-brand-primary shadow-sm" />
+            <button type="submit"
+                    class="inline-flex items-center justify-center whitespace-nowrap px-5 py-3 rounded-lg font-semibold text-white bg-brand-dark hover:bg-brand-primary shadow-soft transition-all">
+              Únete a la beta
+            </button>
+          </form>
+
+          <!-- Micro trust/nota -->
+          <div class="mt-3 flex items-center gap-2 text-sm text-slate-500">
+            <svg width="16" height="16" viewBox="0 0 24 24" class="text-brand-success" aria-hidden="true">
+              <path fill="currentColor" d="M12 22q-4.2 0-7.1-2.9T2 12t2.9-7.1T12 2t7.1 2.9T22 12t-2.9 7.1T12 22m-1-6l7-7l-1.4-1.4L11 13.2L7.4 9.6L6 11z"/>
+            </svg>
+            Sin spam. Sólo un aviso cuando la beta esté disponible.
+          </div>
+        </div>
+
+        <!-- Mockup del dashboard -->
+        <div id="preview" class="relative">
+          <!-- gotas decorativas -->
+          <div class="absolute -top-6 -left-6 w-16 h-16 rounded-full bg-brand-primary/20 blur-xl"></div>
+          <div class="absolute -bottom-8 -right-4 w-20 h-20 rounded-full bg-brand-success/20 blur-xl"></div>
+
+          <div class="relative rounded-2xl border border-slate-200/70 bg-white/80 backdrop-blur-xl shadow-soft overflow-hidden">
+            <div class="flex items-center justify-between px-5 py-4 border-b border-slate-200/80">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-green-400"></span>
+              </div>
+              <span class="text-sm font-medium text-slate-500">Resumen de suscripciones</span>
+              <div class="w-8"></div>
+            </div>
+
+            <div class="p-5 md:p-6">
+              <!-- Total mensual -->
+              <div class="mb-5 flex items-end justify-between">
+                <div>
+                  <p class="text-sm text-slate-500">Total mensual estimado</p>
+                  <p class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">62€</p>
+                </div>
+                <span class="inline-flex items-center gap-1 text-sm text-brand-success bg-emerald-50 border border-emerald-100 px-3 py-1 rounded-full">
+                  <svg width="16" height="16" viewBox="0 0 24 24" class="text-brand-success" aria-hidden="true">
+                    <path fill="currentColor" d="m7 14l5-5l5 5z"/>
+                  </svg>
+                  Potencial de ahorro
+                </span>
+              </div>
+
+              <!-- Lista de servicios -->
+              <ul class="space-y-3">
+                <!-- Netflix -->
+                <li class="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3">
+                  <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-md bg-[#E50914] flex items-center justify-center">
+                      <!-- Netflix N -->
+                      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                        <path fill="#ffffff" d="M6 3h2.4l7.2 14.5V3H18v18h-2.4L8.4 6.5V21H6z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <p class="font-medium">Netflix</p>
+                      <p class="text-xs text-slate-500">Desde: 2021</p>
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <p class="font-semibold">15€</p>
+                    <p class="text-xs text-slate-500">/mes</p>
+                  </div>
+                </li>
+
+                <!-- Spotify -->
+                <li class="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3">
+                  <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-md bg-[#1DB954] flex items-center justify-center">
+                      <!-- Spotify -->
+                      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                        <path fill="#ffffff" d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2m4.49 14.26a.75.75 0 0 1-1.03.25c-2.82-1.72-6.37-2.11-10.55-1.17a.75.75 0 1 1-.32-1.46c4.52-1 8.45-.55 11.53 1.31c.36.22.47.69.25 1.07m1.46-3.05a.94.94 0 0 1-1.29.31c-3.23-1.98-8.16-2.56-11.98-1.42a.94.94 0 1 1-.54-1.8c4.3-1.29 9.7-.65 13.4 1.59c.45.28.6.87.31 1.32m.13-3.11c-3.75-2.22-9.95-2.43-13.51-1.34a1.13 1.13 0 1 1-.65-2.16c4.11-1.25 10.96-1.02 15.33 1.57c.54.32.71 1.03.39 1.57a1.13 1.13 0 0 1-1.56.36"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <p class="font-medium">Spotify</p>
+                      <p class="text-xs text-slate-500">Desde: 2020</p>
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <p class="font-semibold">11€</p>
+                    <p class="text-xs text-slate-500">/mes</p>
+                  </div>
+                </li>
+
+                <!-- ChatGPT -->
+                <li class="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3">
+                  <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-md bg-slate-900 flex items-center justify-center">
+                      <!-- OpenAI knot -->
+                      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                        <path fill="#10B981" d="M13.27 3.05a5.24 5.24 0 0 1 7.24 4.85v.44a5.24 5.24 0 0 1-.73 9.94a5.24 5.24 0 0 1-8.74 2.84a5.24 5.24 0 0 1-8.57-4.1v-.44a5.24 5.24 0 0 1 .73-9.94A5.24 5.24 0 0 1 12 2c.45 0 .9.06 1.27.17zM12 5a3 3 0 0 0-2.6 1.5a3.5 3.5 0 0 0-4.9 3.15v.35A3.5 3.5 0 0 0 6 16.3a3.5 3.5 0 0 0 5.24 1.64A3.5 3.5 0 0 0 18.5 15v-.35A3.5 3.5 0 0 0 18 7.7A3.5 3.5 0 0 0 12 5z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <p class="font-medium">ChatGPT</p>
+                      <p class="text-xs text-slate-500">Desde: 2023</p>
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <p class="font-semibold">20€</p>
+                    <p class="text-xs text-slate-500">/mes</p>
+                  </div>
+                </li>
+
+                <!-- Figma -->
+                <li class="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3">
+                  <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-md bg-white border border-slate-200 flex items-center justify-center">
+                      <!-- Figma -->
+                      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                        <path fill="#F24E1E" d="M10 12a2 2 0 1 1 0-4h2v4z"/>
+                        <path fill="#FF7262" d="M12 8a2 2 0 1 0 0-4h-2v4z"/>
+                        <path fill="#A259FF" d="M14 12a2 2 0 1 0 0-4h-2v4z"/>
+                        <path fill="#0ACF83" d="M10 22a2 2 0 1 0 0-4a2 2 0 0 0 0 4"/>
+                        <path fill="#1ABCFE" d="M12 18a2 2 0 1 0 0-4h-2v4z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <p class="font-medium">Figma</p>
+                      <p class="text-xs text-slate-500">Desde: 2022</p>
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <p class="font-semibold">16€</p>
+                    <p class="text-xs text-slate-500">/mes</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <!-- Beneficios -->
+  <main>
+    <section id="beneficios" class="container mx-auto px-6 py-14 md:py-16">
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight">Todo bajo control, en un solo panel</h2>
+        <p class="mt-3 text-slate-600">Transparencia, control y ahorro en tus suscripciones.</p>
+      </div>
+
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Beneficio 1 -->
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-10 h-10 rounded-lg bg-brand-primary/10 text-brand-primary flex items-center justify-center">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M3 5h18v2H3zm2 4h14v10H5z"/>
+            </svg>
+          </div>
+          <h3 class="mt-4 font-semibold">Controla todas tus suscripciones en un sólo panel.</h3>
+          <p class="mt-2 text-sm text-slate-600">Unifica tu gasto recurrente sin hojas de cálculo ni búsquedas manuales.</p>
+        </div>
+
+        <!-- Beneficio 2 -->
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-10 h-10 rounded-lg bg-brand-success/10 text-brand-success flex items-center justify-center">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M12 1a11 11 0 1 0 0 22A11 11 0 0 0 12 1m1 5v4h3v2h-3v4h-2v-4H8v-2h3V6z"/>
+            </svg>
+          </div>
+          <h3 class="mt-4 font-semibold">Descubre cuánto pagas cada mes y cuánto puedes ahorrarte.</h3>
+          <p class="mt-2 text-sm text-slate-600">Detectamos importes y periodos para que decidas dónde cerrar el grifo.</p>
+        </div>
+
+        <!-- Beneficio 3 -->
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-10 h-10 rounded-lg bg-brand-dark/10 text-brand-dark flex items-center justify-center">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M12 2c3 0 5 2.5 5 5.5C17 12 12 16 12 16S7 12 7 7.5C7 4.5 9 2 12 2m0 5.5a2 2 0 1 0 0-4a2 2 0 0 0 0 4"/>
+            </svg>
+          </div>
+          <h3 class="mt-4 font-semibold">Cancela lo que no uses y date algún capricho 😉.</h3>
+          <p class="mt-2 text-sm text-slate-600">Convierte gastos invisibles en dinero para lo que de verdad quieres.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA secundaria -->
+    <section class="container mx-auto px-6 pb-16">
+      <div class="rounded-2xl bg-gradient-to-r from-brand-dark to-brand-primary text-white p-8 md:p-10 shadow-soft">
+        <div class="md:flex md:items-center md:justify-between gap-8">
+          <div>
+            <h3 class="text-2xl font-extrabold tracking-tight">Empieza a cerrar grifos hoy</h3>
+            <p class="mt-2 text-white/80">Únete a la beta y sé de los primeros en probar CortaElGrifo.</p>
+          </div>
+          <form class="mt-6 md:mt-0 flex flex-col sm:flex-row gap-3" action="#" method="post" onsubmit="event.preventDefault(); alert('¡Apuntado!');">
+            <label class="sr-only" for="email-cta-2">Email</label>
+            <input id="email-cta-2" name="email" type="email" required placeholder="tu@email.com"
+                   class="w-full sm:flex-1 px-4 py-3 rounded-lg border border-white/20 bg-white/10 placeholder:text-white/70 focus:outline-none focus:ring-4 focus:ring-white/30 focus:border-white/60" />
+            <button type="submit"
+                    class="inline-flex items-center justify-center whitespace-nowrap px-5 py-3 rounded-lg font-semibold text-slate-900 bg-white hover:bg-slate-100 shadow-md transition-all">
+              Únete a la beta
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 bg-white">
+    <div class="container mx-auto px-6 py-10 grid gap-8 sm:grid-cols-3">
+      <div class="sm:col-span-2">
+        <a href="#" class="inline-flex items-center gap-2">
+          <span class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-brand-dark text-white">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M4 8h7V6H8.5A2.5 2.5 0 0 0 6 3.5V3h5V1H4v2.5A4.5 4.5 0 0 0 8.5 8H4zm16 3h-3V8h-2v3h-1a3 3 0 0 0-3 3v1.5a2.5 2.5 0 1 0 5 0V14h4a2 2 0 0 0 2-2v-.5A1.5 1.5 0 0 0 20 10.5z"/>
+            </svg>
+          </span>
+          <span class="font-semibold text-lg tracking-tight">CortaElGrifo</span>
+        </a>
+        <p class="mt-3 text-sm text-slate-600 max-w-prose">
+          Un microSAAS para detectar y gestionar todas tus suscripciones automáticamente.
+        </p>
+      </div>
+      <div class="space-y-2">
+        <p class="text-sm text-slate-600">
+          Contacto: <a class="underline hover:text-slate-900" href="mailto:hola@cortaelgrifo.com">hola@cortaelgrifo.com</a>
+        </p>
+        <div class="text-sm text-slate-600 flex flex-wrap gap-x-4 gap-y-2">
+          <a href="#" class="hover:text-slate-900">Aviso de privacidad</a>
+          <a href="#" class="hover:text-slate-900">Términos de uso</a>
+        </div>
+        <p class="text-xs text-slate-500">© <span id="year"></span> CortaElGrifo. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
