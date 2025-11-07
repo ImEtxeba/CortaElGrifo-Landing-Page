@@ -122,7 +122,9 @@ header {
             Conecta tu correo y detectamos automáticamente tus suscripciones online.
             Visualiza cuánto pagas cada mes, desde cuándo, y elimina lo que no usas.
           </p>
-          <form id="cta" class="mt-6 flex flex-col sm:flex-row gap-3" action="#" method="post" onsubmit="event.preventDefault(); alert('¡Gracias! Te avisaremos cuando la beta esté lista.');">
+          <form id="cta" class="mt-6 flex flex-col sm:flex-row gap-3" action="#" method="post">
+
+
             <label class="sr-only" for="email">Email</label>
             <input id="email" name="email" type="email" required placeholder="tu@email.com"
                    class="w-full sm:flex-1 px-4 py-3 rounded-lg border border-slate-200 bg-white/90 backdrop-blur placeholder:text-slate-400 focus:outline-none focus:ring-4 focus:ring-brand-primary/20 focus:border-brand-primary shadow-sm" />
@@ -308,8 +310,8 @@ header {
   <main>
     <section id="beneficios" class="container mx-auto px-6 pt-2 md:pt-4 pb-14 md:pb-16">
       <div class="mx-auto max-w-2xl text-center">
-        <h2 class="text-2xl md:text-3xl font-bold tracking-tight">Todo bajo control, en un solo panel</h2>
-        <p class="mt-3 text-slate-600">Transparencia, control y ahorro en tus suscripciones.</p>
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight">Todo bajo control en un solo panel</h2>
+        <p class="mt-3 text-slate-600">Transparencia y ahorro en tus suscripciones.</p>
       </div>
 
       <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -331,7 +333,7 @@ header {
               <path fill="currentColor" d="M12 1a11 11 0 1 0 0 22A11 11 0 0 0 12 1m1 5v4h3v2h-3v4h-2v-4H8v-2h3V6z"/>
             </svg>
           </div>
-          <h3 class="mt-4 font-semibold">Descubre cuánto pagas cada mes y cuánto puedes ahorrarte.</h3>
+          <h3 class="mt-4 font-semibold">Descubre cuánto pagas cada mes y cuánto puedes ahorrar.</h3>
           <p class="mt-2 text-sm text-slate-600">Detectamos importes y periodos para que decidas dónde cerrar el grifo.</p>
         </div>
 
@@ -354,9 +356,10 @@ header {
         <div class="md:flex md:items-center md:justify-between gap-8">
           <div>
             <h3 class="text-2xl font-extrabold tracking-tight">Empieza a cerrar grifos hoy</h3>
-            <p class="mt-2 text-white/80">Únete a la beta y sé de los primeros en probar CortaElGrifo.</p>
+            <p class="mt-2 text-white/80">Únete a la beta y sé de los primeros en probar CortaElGrifo</p>
           </div>
-          <form class="mt-6 md:mt-0 flex flex-col sm:flex-row gap-3" action="#" method="post" onsubmit="event.preventDefault(); alert('¡Apuntado!');">
+          <form id="cta-2" class="mt-6 md:mt-0 flex flex-col sm:flex-row gap-3" action="#" method="post">
+
             <label class="sr-only" for="email-cta-2">Email</label>
             <input id="email-cta-2" name="email" type="email" required placeholder="tu@email.com"
                    class="w-full sm:flex-1 px-4 py-3 rounded-lg border border-white/20 bg-white/10 placeholder:text-white/70 focus:outline-none focus:ring-4 focus:ring-white/30 focus:border-white/60" />
@@ -396,5 +399,102 @@ header {
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+
+<script>
+  const SUPABASE_URL = "https://tthkeykxthdmbecydgfr.supabase.co";
+  const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR0aGtleWt4dGhkbWJlY3lkZ2ZyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjIyNjM3MzYsImV4cCI6MjA3NzgzOTczNn0.UHkp21HUwpLIZwbVJlXXGw8mxfp-te0sOvF1l5Rld1Q";
+
+  const form = document.getElementById("cta");
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const emailInput = document.getElementById("email");
+    const email = emailInput.value.trim();
+
+    if (!email) {
+      alert("Por favor introduce un correo válido.");
+      return;
+    }
+
+    try {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/emails`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": SUPABASE_KEY,
+          "Authorization": `Bearer ${SUPABASE_KEY}`,
+          "Prefer": "return=minimal"
+        },
+        body: JSON.stringify({ email })
+      });
+
+      if (!res.ok) throw new Error("Error al insertar el correo.");
+
+      alert("¡Gracias! Te avisaremos cuando la beta esté lista 💧");
+      emailInput.value = "";
+    } catch (err) {
+      console.error(err);
+      alert("¡Ya te habías registrado previamente! Muchas gracias por el interés 💧");
+    }
+  });
+</script>
+
+<script>
+  const SUPABASE_URL = "https://tthkeykxthdmbecydgfr.supabase.co";
+  const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR0aGtleWt4dGhkbWJlY3lkZ2ZyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjIyNjM3MzYsImV4cCI6MjA3NzgzOTczNn0.UHkp21HUwpLIZwbVJlXXGw8mxfp-te0sOvF1l5Rld1Q";
+
+  async function guardarEmail(email) {
+  try {
+    const insert = await fetch(`${SUPABASE_URL}/rest/v1/emails`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        apikey: SUPABASE_KEY,
+        Authorization: `Bearer ${SUPABASE_KEY}`,
+        Prefer: "return=minimal",
+      },
+      body: JSON.stringify({ email }),
+    });
+
+    if (insert.status === 409) {
+      // 409 = conflicto por restricción única
+      alert("Ya estás apuntado 💧");
+      return;
+    }
+
+    if (!insert.ok) throw new Error("Error al guardar el correo");
+
+    alert("¡Gracias! Te avisaremos cuando la beta esté lista 💧");
+  } catch (err) {
+    console.error(err);
+    alert("Hubo un error 😢");
+  }
+}
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // 3️⃣ Detectar todos los formularios con clase o id CTA
+    const forms = document.querySelectorAll("form[id^='cta']");
+    forms.forEach((form) => {
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        e.stopImmediatePropagation(); // 🔥 Mata cualquier evento duplicado
+
+        const input = form.querySelector("input[type='email']");
+        if (!input) return alert("No se encontró el campo de email.");
+
+        const email = input.value.trim();
+        if (!email) return alert("Introduce un correo válido");
+
+        await guardarEmail(email);
+        input.value = "";
+      });
+    });
+  });
+</script>
+
+
+
+
 </body>
 </html>
