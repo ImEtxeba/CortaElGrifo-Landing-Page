@@ -80,7 +80,7 @@ header {
   inset: 0 !important;
 }
 
-      }
+      
       @media (max-width: 1023px) {
         #header-spacer { height: 160px !important; }
       }
@@ -175,109 +175,84 @@ header {
                 </span>
               </div>
 
-              <!-- Lista de servicios -->
-              <ul class="space-y-3">
-                <!-- Netflix -->
-                <li class="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3">
-                  <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-md bg-[#E50914] flex items-center justify-center">
-                      <!-- Netflix N -->
-                      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-                        <path fill="#ffffff" d="M6 3h2.4l7.2 14.5V3H18v18h-2.4L8.4 6.5V21H6z"/>
-                      </svg>
-                    </div>
-                    <div>
-                      <p class="font-medium">Netflix</p>
-                      <p class="text-xs text-slate-500">Desde: 2021</p>
-                    </div>
-                  </div>
-                  <div class="text-right">
-                    <p class="font-semibold">15€</p>
-                    <p class="text-xs text-slate-500">/mes</p>
-                  </div>
-                </li>
+             <!-- Lista de servicios -->
+<ul class="space-y-3">
+  <!-- Netflix -->
+  <li class="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3">
+    <div class="flex items-center gap-3">
+      <img src="assets/netflix.svg" alt="Netflix" class="w-8 h-8 rounded-md object-contain" />
+      <div>
+        <p class="font-medium">Netflix</p>
+        <p class="text-xs text-slate-500">Desde: 2021</p>
+      </div>
+    </div>
+    <div class="text-right">
+      <p class="font-semibold">15€</p>
+      <p class="text-xs text-slate-500">/mes</p>
+    </div>
+  </li>
 
-                <!-- Spotify -->
-                <li class="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3">
-                  <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-md bg-[#1DB954] flex items-center justify-center">
-                      <!-- Spotify -->
-                      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-                        <path fill="#ffffff" d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2m4.49 14.26a.75.75 0 0 1-1.03.25c-2.82-1.72-6.37-2.11-10.55-1.17a.75.75 0 1 1-.32-1.46c4.52-1 8.45-.55 11.53 1.31c.36.22.47.69.25 1.07m1.46-3.05a.94.94 0 0 1-1.29.31c-3.23-1.98-8.16-2.56-11.98-1.42a.94.94 0 1 1-.54-1.8c4.3-1.29 9.7-.65 13.4 1.59c.45.28.6.87.31 1.32m.13-3.11c-3.75-2.22-9.95-2.43-13.51-1.34a1.13 1.13 0 1 1-.65-2.16c4.11-1.25 10.96-1.02 15.33 1.57c.54.32.71 1.03.39 1.57a1.13 1.13 0 0 1-1.56.36"/>
-                      </svg>
-                    </div>
-                    <div>
-                      <p class="font-medium">Spotify</p>
-                      <p class="text-xs text-slate-500">Desde: 2020</p>
-                    </div>
-                  </div>
-                  <div class="text-right">
-                    <p class="font-semibold">11€</p>
-                    <p class="text-xs text-slate-500">/mes</p>
-                  </div>
-                </li>
+  <!-- Spotify -->
+  <li class="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3">
+    <div class="flex items-center gap-3">
+      <img src="assets/spotify.svg" alt="Spotify" class="w-8 h-8 rounded-md object-contain" />
+      <div>
+        <p class="font-medium">Spotify</p>
+        <p class="text-xs text-slate-500">Desde: 2020</p>
+      </div>
+    </div>
+    <div class="text-right">
+      <p class="font-semibold">11€</p>
+      <p class="text-xs text-slate-500">/mes</p>
+    </div>
+  </li>
 
-                <!-- ChatGPT -->
-                <li class="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3">
-                  <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-md bg-slate-900 flex items-center justify-center">
-                      <!-- OpenAI knot -->
-                      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-                        <path fill="#10B981" d="M13.27 3.05a5.24 5.24 0 0 1 7.24 4.85v.44a5.24 5.24 0 0 1-.73 9.94a5.24 5.24 0 0 1-8.74 2.84a5.24 5.24 0 0 1-8.57-4.1v-.44a5.24 5.24 0 0 1 .73-9.94A5.24 5.24 0 0 1 12 2c.45 0 .9.06 1.27.17zM12 5a3 3 0 0 0-2.6 1.5a3.5 3.5 0 0 0-4.9 3.15v.35A3.5 3.5 0 0 0 6 16.3a3.5 3.5 0 0 0 5.24 1.64A3.5 3.5 0 0 0 18.5 15v-.35A3.5 3.5 0 0 0 18 7.7A3.5 3.5 0 0 0 12 5z"/>
-                      </svg>
-                    </div>
-                    <div>
-                      <p class="font-medium">ChatGPT</p>
-                      <p class="text-xs text-slate-500">Desde: 2023</p>
-                    </div>
-                  </div>
-                  <div class="text-right">
-                    <p class="font-semibold">20€</p>
-                    <p class="text-xs text-slate-500">/mes</p>
-                  </div>
-                </li>
+  <!-- ChatGPT -->
+  <li class="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3">
+    <div class="flex items-center gap-3">
+      <img src="assets/chatgpt.png" alt="ChatGPT" class="w-8 h-8 rounded-md object-contain" />
+      <div>
+        <p class="font-medium">ChatGPT</p>
+        <p class="text-xs text-slate-500">Desde: 2023</p>
+      </div>
+    </div>
+    <div class="text-right">
+      <p class="font-semibold">20€</p>
+      <p class="text-xs text-slate-500">/mes</p>
+    </div>
+  </li>
 
-                <!-- Figma -->
-                <li class="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3">
-                  <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-md bg-white border border-slate-200 flex items-center justify-center">
-                      <!-- Figma -->
-                      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-                        <path fill="#F24E1E" d="M10 12a2 2 0 1 1 0-4h2v4z"/>
-                        <path fill="#FF7262" d="M12 8a2 2 0 1 0 0-4h-2v4z"/>
-                        <path fill="#A259FF" d="M14 12a2 2 0 1 0 0-4h-2v4z"/>
-                        <path fill="#0ACF83" d="M10 22a2 2 0 1 0 0-4a2 2 0 0 0 0 4"/>
-                        <path fill="#1ABCFE" d="M12 18a2 2 0 1 0 0-4h-2v4z"/>
-                      </svg>
-                    </div>
-                    <div>
-                      <p class="font-medium">Figma</p>
-                      <p class="text-xs text-slate-500">Desde: 2022</p>
-                    </div>
-                  </div>
-                  <div class="text-right">
-                    <p class="font-semibold">16€</p>
-                    <p class="text-xs text-slate-500">/mes</p>
-                  </div>
-                </li>
+  <!-- Figma -->
+  <li class="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3">
+    <div class="flex items-center gap-3">
+      <img src="assets/figma.svg" alt="Figma" class="w-8 h-8 rounded-md object-contain" />
+      <div>
+        <p class="font-medium">Figma</p>
+        <p class="text-xs text-slate-500">Desde: 2022</p>
+      </div>
+    </div>
+    <div class="text-right">
+      <p class="font-semibold">16€</p>
+      <p class="text-xs text-slate-500">/mes</p>
+    </div>
+  </li>
 
-                <!-- Zara -->
-                <li class="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3">
-                  <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-md bg-white border border-slate-200 flex items-center justify-center">
-                      <span class="text-xs font-semibold text-slate-700">Z</span>
-                    </div>
-                    <div>
-                      <p class="font-medium">Zara</p>
-                      <p class="text-xs text-slate-500">Desde: 2024</p>
-                    </div>
-                  </div>
-                  <div class="text-right">
-                    <p class="font-semibold">0€</p>
-                    <p class="text-xs text-slate-500">/mes</p>
-                  </div>
-                </li>
-              </ul>
+  <!-- Zara -->
+  <li class="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3">
+    <div class="flex items-center gap-3">
+      <img src="assets/zara.png" alt="Zara" class="w-10 h-10 rounded-md object-contain" />
+      <div>
+        <p class="font-medium">Zara</p>
+        <p class="text-xs text-slate-500">Desde: 2024</p>
+      </div>
+    </div>
+    <div class="text-right">
+      <p class="font-semibold">0€</p>
+      <p class="text-xs text-slate-500">/mes</p>
+    </div>
+  </li>
+</ul>
+
             </div>
           </div>
         </div>
@@ -400,44 +375,7 @@ header {
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
-<script>
-  const SUPABASE_URL = "https://tthkeykxthdmbecydgfr.supabase.co";
-  const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR0aGtleWt4dGhkbWJlY3lkZ2ZyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjIyNjM3MzYsImV4cCI6MjA3NzgzOTczNn0.UHkp21HUwpLIZwbVJlXXGw8mxfp-te0sOvF1l5Rld1Q";
 
-  const form = document.getElementById("cta");
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-
-    const emailInput = document.getElementById("email");
-    const email = emailInput.value.trim();
-
-    if (!email) {
-      alert("Por favor introduce un correo válido.");
-      return;
-    }
-
-    try {
-      const res = await fetch(`${SUPABASE_URL}/rest/v1/emails`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "apikey": SUPABASE_KEY,
-          "Authorization": `Bearer ${SUPABASE_KEY}`,
-          "Prefer": "return=minimal"
-        },
-        body: JSON.stringify({ email })
-      });
-
-      if (!res.ok) throw new Error("Error al insertar el correo.");
-
-      alert("¡Gracias! Te avisaremos cuando la beta esté lista 💧");
-      emailInput.value = "";
-    } catch (err) {
-      console.error(err);
-      alert("¡Ya te habías registrado previamente! Muchas gracias por el interés 💧");
-    }
-  });
-</script>
 
 <script>
   const SUPABASE_URL = "https://tthkeykxthdmbecydgfr.supabase.co";
@@ -458,7 +396,7 @@ header {
 
     if (insert.status === 409) {
       // 409 = conflicto por restricción única
-      alert("Ya estás apuntado 💧");
+      alert("Ya te habías apuntado previamente, ¡Muchas gracias por el interés! 💧");
       return;
     }
 
